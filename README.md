@@ -1,4 +1,3 @@
-```markdown
 # Git Clone Script
 
 This repository contains a Python script that provides functions to clone both private and public GitHub repositories. The script uses the `git` and `requests` libraries to accomplish this.
