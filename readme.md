@@ -1,5 +1,3 @@
-Here's a `README.md` file for your script, which outlines the purpose, usage, and requirements:
-
 ```markdown
 # Git Clone Script
 
