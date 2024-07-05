@@ -21,45 +21,6 @@ This repository contains a Python script that provides functions to clone both p
     ```bash
     pip install gitpython requests
     ```
-
-## Usage
-
-### Cloning a Private Repository
-
-To clone a private repository, use the `gitClonePrivateRepo` function. You need to provide the GitHub repository URL, a personal access token, the local directory where the repository will be cloned, and optionally the branch to clone (default is `main`).
-
-```python
-from git import Repo, GitCommandError
-import requests
-
-def gitClonePrivateRepo(githuburl, private_token, local_dir, branch='main'):
-    repo_url = f"https://{private_token}:x-oauth-basic@{githuburl}"
-    try:
-        Repo.clone_from(repo_url, f"./repository/{local_dir}", branch=branch)
-        response = {
-            "error": [],
-            "msg": "Repository cloned successfully."
-        }
-    except GitCommandError as e:
-        error_message = e.stderr.strip()
-        if "already exists" in error_message:
-            response = {
-                "error": f"Project already exists: {local_dir}",
-                "msg": []
-            }, 404
-        else:
-            response = {
-                "error": f"Repository or branch not found: {repo_url}",
-                "msg": []
-            }, 404
-    except Exception as e:
-        response = {
-            "error": f"Some error occurred: {str(e)}",
-            "msg": []
-        }, 404
-    return response
-```
-
 ## Example
 
 ```python
