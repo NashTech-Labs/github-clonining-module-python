@@ -1,6 +1,0 @@
-program_output:
-  enabled: true
-  keep_alive: false
-  program: "jq '{text: .output}' | curl --header 'Content-Type: application/json' -d @- -X POST http://127.0.0.1:3000/"
-
-json_output: true
